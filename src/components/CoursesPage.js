@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 import { getCourses } from "../api/courseApi";
 import CourseList from "./CourseList";
 
-const CoursesPage = () => {
+const CoursesPage = (props) => {
   const [courses, setCourses] = useState([]);
+  debugger;
+
+  console.log("Path variable: ", props.match.params.slug);
+  console.log("Query Parameter: ", props.location.search);
+  console.log("Query Parameter: ", props.location.pathname);
 
   useEffect(() => {
     getCourses().then((_c) => {
