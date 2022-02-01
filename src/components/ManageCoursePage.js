@@ -4,6 +4,7 @@ import * as courseApi from "../api/courseApi";
 import { toast } from "react-toastify";
 
 function ManageCoursePage(props) {
+  const [error, setError] = useState({});
   const [course, setCourse] = useState({
     id: null,
     slug: "",
@@ -12,16 +13,35 @@ function ManageCoursePage(props) {
     category: "",
   });
 
-  function handleChange({ target }) {
-    setCourse({ ...course, [target.name]: target.value });
+  function handleChange(e) {
+    setCourse({ ...course, [e.target.name]: e.target.value });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!formIsValid()) {
+      return;
+    }
     courseApi.saveCourse(course).then(() => {
       props.history.push("/courses");
       toast.success("Course Saved");
     });
+  }
+
+  function formIsValid() {
+    let _error = {};
+    if (!course.title) {
+      _error.title = "Title can not be blank";
+    }
+    if (!course.authorId) {
+      _error.authorId = "Please select author";
+    }
+    if (!course.category) {
+      _error.category = "Category can not be blank";
+    }
+
+    setError(_error);
+    return Object.keys(_error).length === 0;
   }
 
   return (
@@ -31,6 +51,7 @@ function ManageCoursePage(props) {
         course={course}
         onChange={handleChange}
         onSubmit={handleSubmit}
+        error={error}
       />
     </div>
   );

@@ -5,7 +5,6 @@ import CourseList from "./CourseList";
 
 const CoursesPage = (props) => {
   const [courses, setCourses] = useState([]);
-  debugger;
 
   console.log("Path variable: ", props.match.params.slug);
   console.log("Query Parameter: ", props.location.search);
