@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CourseForm from "./CourseForm";
 import * as courseApi from "../api/courseApi";
 import { toast } from "react-toastify";
@@ -12,6 +12,13 @@ function ManageCoursePage(props) {
     authorId: null,
     category: "",
   });
+
+  useEffect(() => {
+    const slug = props.match.params.slug;
+    if (slug) {
+      courseApi.getCourseBySlug(slug).then((_course) => setCourse(_course));
+    }
+  }, [props.match.params.slug]);
 
   function handleChange(e) {
     setCourse({ ...course, [e.target.name]: e.target.value });

@@ -2,9 +2,9 @@
   "courses": [
     {
       "id": 1,
-      "title": "Securing React Apps with Auth0",
+      "title": "Securing React Apps with Auth0000",
       "slug": "react-auth0-authentication-security",
-      "authorId": 1,
+      "authorId": 2,
       "category": "JavaScript"
     },
     {
@@ -54,7 +54,7 @@
       "title": "Architecting Applications for the Real World",
       "slug": "architecting-applications-dotnet",
       "authorId": 1,
-      "category": "Software Architecture"
+      "category": "Software Architecture 123"
     },
     {
       "id": 9,
@@ -69,14 +69,6 @@
       "slug": "web-components-shadow-dom",
       "authorId": 1,
       "category": "HTML5"
-    },
-    {
-      "id": 11,
-      "slug": "asdfaasdfasdfadsfa",
-      "title": "asdfaasdfasdfadsfa",
-      "authorId": 2,
-      "category": "4r",
-      "createdAt": 1643696966664
     }
   ],
   "authors": [

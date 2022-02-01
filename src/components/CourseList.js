@@ -14,7 +14,7 @@ function CourseList(props) {
         {props.courses.map((c) => {
           return (
             <tr key={c.id}>
-              <td><Link to={"/manage-course/" + c.slug}> {c.title}</Link></td>
+              <td><Link to={"/course/" + c.slug}> {c.title}</Link></td>
               <td>{c.authorId}</td>
               <td>{c.category}</td>
             </tr>
