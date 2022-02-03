@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getCourses } from "../api/courseApi";
 import CourseList from "./CourseList";
+import courseStore from "../stores/courseStore";
+import { loadCourses } from "../actions/courseAction";
 
-const CoursesPage = (props) => {
-  const [courses, setCourses] = useState([]);
-
-  console.log("Path variable: ", props.match.params.slug);
-  console.log("Query Parameter: ", props.location.search);
-  console.log("Query Parameter: ", props.location.pathname);
+const CoursesPage = () => {
+  const [courses, setCourses] = useState(courseStore.getCourses());
 
   useEffect(() => {
-    getCourses().then((_c) => {
-      setCourses(_c);
-      console.log(courses, _c);
-    });
+    courseStore.addChangeListener(onChange);
+    if (courseStore.getCourses().length === 0) loadCourses();
+    return () => courseStore.removeChangeListener(onChange);
   }, []);
+
+  function onChange() {
+    setCourses(courseStore.getCourses());
+  }
 
   return (
     <>
       <h1>Courses</h1>
-      <Link to="/course" className="btn btn-primary">Add Course</Link>
+      <Link to="/course" className="btn btn-primary">
+        Add Course
+      </Link>
       <CourseList courses={courses} />
     </>
   );
