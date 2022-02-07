@@ -30,17 +30,11 @@ function ManageCoursePage(props) {
     if (!formIsValid()) {
       return;
     }
-    if (course.id !== null) {
-      courseAction.updateCourse(course).then(() => {
-        props.history.push("/courses");
-        toast.success("Course Updated");
-      });
-    } else {
-      courseAction.saveCourse(course).then(() => {
-        props.history.push("/courses");
-        toast.success("Course Saved");
-      });
-    }
+  
+    courseAction.saveCourse(course).then(() => {
+      props.history.push("/courses");
+      toast.success("Course Saved");
+    });
   }
 
   function formIsValid() {

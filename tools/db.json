@@ -2,7 +2,7 @@
   "courses": [
     {
       "id": 1,
-      "title": "Securing React Apps with Auth0",
+      "title": "Securing React Apps with Auth",
       "slug": "react-auth0-authentication-security",
       "authorId": 1,
       "category": "JavaScript"
@@ -72,11 +72,11 @@
     },
     {
       "id": 11,
-      "slug": "rrr",
-      "title": "RRR7612",
+      "slug": "6y",
+      "title": "6y66",
       "authorId": 2,
-      "category": "455",
-      "createdAt": 1643897791838
+      "category": "6y666",
+      "createdAt": 1644225667788
     }
   ],
   "authors": [
